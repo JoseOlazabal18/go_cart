@@ -1,0 +1,35 @@
+<?php
+
+class Model {
+
+    protected $pdo;
+
+    public function __construct() {
+
+        try {
+
+            $dsn = "mysql:host=" . DB_HOST .
+                    ";port=" . DB_PORT .
+                    ";dbname=" . DB_NAME .
+                    ";charset=utf8";
+
+            $this->pdo = new PDO(
+                $dsn,
+                DB_USER,
+                DB_PASS,
+                [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // Manejo de errores
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, // Devuelve arrays asociativos
+                    PDO::ATTR_EMULATE_PREPARES => false // Prepared statements reales
+                ]
+            );
+
+        } catch (PDOException $e) {
+
+            die("Error de conexión: " . $e->getMessage());
+
+        }
+
+    }
+
+}

@@ -1,0 +1,97 @@
+:root {
+    /* ========================================
+       IMPORTANTE: Con font-size: 62.5% en html
+       1rem = 10px
+    ========================================== */
+    
+    /* Colores principales */
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #3b82f6;
+    --primary-bg: #eff6ff;
+    --secondary: #06b6d4;
+    --secondary-dark: #0891b2;
+    
+    /* Colores neutrales */
+    --white: #ffffff;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --black: #000000;
+    
+    /* Colores de estado */
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --info: #3b82f6;
+    
+    /* ========================================
+       ESPACIADO (basado en 1rem = 10px)
+    ========================================== */
+    --spacing-xs: 0.4rem;   /* 4px */
+    --spacing-sm: 0.8rem;   /* 8px */
+    --spacing-md: 1.6rem;   /* 16px */
+    --spacing-lg: 2.4rem;   /* 24px */
+    --spacing-xl: 3.2rem;   /* 32px */
+    --spacing-2xl: 4rem;    /* 40px */
+    --spacing-3xl: 4.8rem;  /* 48px */
+    --spacing-4xl: 6.4rem;  /* 64px */
+    --spacing-5xl: 8rem;    /* 80px */
+    
+    /* ========================================
+       TIPOGRAFÍA (basado en 1rem = 10px)
+    ========================================== */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    
+    /* Tipografía */
+    --text-xs: 1.4rem;   /* 14px - El mínimo legal/detalles */
+    --text-sm: 1.6rem;   /* 16px - Navegación y textos secundarios */
+    --text-base: 1.8rem; /* 18px - Texto de lectura estándar (Antes era 16px) */
+    --text-lg: 2.0rem;   /* 20px */
+    --text-xl: 2.4rem;   /* 24px */
+    --text-2xl: 3.2rem;  /* 32px - Títulos de secciones */
+    --text-3xl: 4.2rem;  /* 42px */
+    --text-4xl: 5.6rem;  /* 56px */
+    --text-5xl: 7.2rem;  /* 72px - Títulos de Hero Banner */
+    
+    /* ========================================
+       SOMBRAS
+    ========================================== */
+    --shadow-sm: 0 0.1rem 0.2rem 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 0.1rem 0.3rem 0 rgb(0 0 0 / 0.1);
+    --shadow-md: 0 0.4rem 0.6rem -0.1rem rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 1rem 1.5rem -0.3rem rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 2rem 2.5rem -0.5rem rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 2.5rem 5rem -1.2rem rgb(0 0 0 / 0.25);
+    
+    /* ========================================
+       BORDES
+    ========================================== */
+    --radius-sm: 0.4rem;   /* 4px */
+    --radius: 0.6rem;      /* 6px */
+    --radius-md: 0.8rem;   /* 8px */
+    --radius-lg: 1.2rem;   /* 12px */
+    --radius-xl: 1.6rem;   /* 16px */
+    --radius-2xl: 2rem;    /* 20px */
+    --radius-full: 99.9rem;
+    
+    /* ========================================
+       TRANSICIONES
+    ========================================== */
+    --transition-fast: 150ms ease;
+    --transition: 300ms ease;
+    --transition-slow: 500ms ease;
+    
+    /* ========================================
+       LAYOUT
+    ========================================== */
+    --container-width: 128rem;  /* 1280px */
+    --header-height: 7.2rem;    /* 72px */
+}
