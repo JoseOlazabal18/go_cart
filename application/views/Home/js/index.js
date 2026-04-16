@@ -1,20 +1,34 @@
-// public/js/main.js
 document.addEventListener('DOMContentLoaded', () => {
-    const cartButtons = document.querySelectorAll('.btn-add-cart');
+    // ELEMENTOS DEL SIDEBAR (Móvil)
+    const btnOpen = document.getElementById('open-menu');
+    const btnClose = document.getElementById('close-menu');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
 
-    cartButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            // Lógica simple: si tiene la clase disabled, no hace nada
-            if (btn.classList.contains('disabled')) {
-                alert("Por favor, selecciona una variante (color/tamaño) primero.");
-                return;
-            }
-            
-            // Simulación de agregar al carrito
-            const count = document.querySelector('.cart-count');
-            count.innerText = parseInt(count.innerText) + 1;
-            btn.innerText = "¡Agregado!";
-            btn.style.backgroundColor = "var(--success)";
-        });
-    });
+    // ELEMENTOS DE CATEGORÍAS (Desktop)
+    const desktopToggle = document.getElementById('desktop-toggle');
+    const desktopList = document.getElementById('desktop-list');
+
+    // Lógica para el Sidebar Móvil (Aparece por la derecha)
+    const toggleMenu = () => {
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+        // Bloquea el scroll del body al abrir el menú
+        document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : 'auto';
+    };
+
+    // Lógica para el Despliegue Horizontal (Desktop)
+    const toggleDesktopCategories = () => {
+        desktopList.classList.toggle('active');
+        // Opcional: Cambia el icono o color del botón al estar activo
+        desktopToggle.classList.toggle('is-active');
+    };
+
+    // Listeners para Móvil
+    if (btnOpen) btnOpen.addEventListener('click', toggleMenu);
+    if (btnClose) btnClose.addEventListener('click', toggleMenu);
+    if (overlay) overlay.addEventListener('click', toggleMenu);
+
+    // Listener para Desktop
+    if (desktopToggle) desktopToggle.addEventListener('click', toggleDesktopCategories);
 });

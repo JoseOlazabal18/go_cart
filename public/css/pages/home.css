@@ -49,3 +49,91 @@
     background-color: var(--gray-300);
     cursor: not-allowed;
 }
+
+
+/*Carrusel*/
+/* --- ESTILOS ESPECÍFICOS PARA LA HOME --- */
+
+/* IMPORTANTE: Eliminamos el flex del body. 
+   Si quieres que toda la página sea gris, úsalo aquí, 
+   si no, quita esta regla de background. 
+*/
+body {
+    background-color: #f4f4f4; /* Un gris más suave para ecommerce */
+}
+
+/* --- ANIMACIÓN DEL SLIDER --- */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    /* Ajustamos a rem (250px = 25rem) */
+    100% { transform: translateX(calc(-25rem * 7)); }
+}
+
+/* --- CONTENEDOR DEL SLIDER (La Sección) --- */
+.slider-section {
+    padding: 4rem 0; /* Espaciado arriba y abajo */
+    background: white; /* Fondo blanco para que resalten los logos */
+    margin: 2rem 0;
+}
+
+.slider {
+    background: white;
+    height: 10rem; /* 100px */
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    /* width: 96rem;  <- Quitado para que sea responsivo */
+    max-width: 120rem; /* Ajuste según tu clase .container */
+}
+
+/* Degradados laterales tipo "espejo" */
+.slider::before,
+.slider::after {
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    content: "";
+    height: 10rem;
+    position: absolute;
+    width: 20rem;
+    z-index: 2;
+}
+
+.slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+
+.slider::before {
+    left: 0;
+    top: 0;
+}
+
+/* El carril que se mueve */
+.slide-track {
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: calc(25rem * 14); /* 14 fotos de 250px */
+}
+
+.slide {
+    height: 10rem;
+    width: 25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    /* Filtro opcional: poner logos en gris y que coloreen al pasar el mouse */
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all .3s ease;
+}
+
+.slide img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}

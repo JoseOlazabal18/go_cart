@@ -81,11 +81,5 @@ footer p {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script>
-    // Estas variables ahora son globales y se definen en cada página
-    // Vienen del script 'process_notifications.php' que se incluyó en el header
-    const globalJustCanceled = <?php echo json_encode($justCanceledOrders ?? []); ?>;
-    const globalExpiringSoon = <?php echo json_encode($expiringSoonOrders ?? []); ?>;
-</script>
-
-<script src="../assets/js/global_notifications.js"></script>
+<script src="<?php echo BASE_URL ?>application/views/home/js/index.js"></script>
+</body>

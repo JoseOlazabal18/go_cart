@@ -2,18 +2,14 @@
 // Zona Horaria
 date_default_timezone_set('America/Lima');
 
-// Protocolo
-if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
-    $protocol = "https://";
+// ENTORNO (simple y controlado)
+if ($_SERVER['HTTP_HOST'] === 'localhost') {
+    define('BASE_URL', 'http://localhost/go_cart/');
 } else {
-    $protocol = "http://";
+    define('BASE_URL', 'https://tudominio.com/go_cart/');
 }
 
-// URL base del proyecto (IMPORTANTE)
-$base_url =  $protocol . $_SERVER['HTTP_HOST'] .  '/go_cart/';
-
-// Constantes globales
-define('BASE_URL', $base_url);
+// Configuración general
 define('DEFAULT_CONTROLLER', 'Home');
 define('DEFAULT_LAYOUT', 'layout');
 

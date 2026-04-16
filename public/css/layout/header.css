@@ -14,19 +14,6 @@
     z-index: 1000;
 }
 
-.top-bar {
-    background-color: var(--gray-900);
-    color: var(--white);
-    font-size: var(--text-xs);
-    padding: var(--spacing-xs) 0;
-}
-
-.top-bar-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .navbar {
     padding: var(--spacing-md) 0;
     border-bottom: 1px solid var(--gray-100);
@@ -39,14 +26,11 @@
     align-items: center;
 }
 
-.logo {
-    font-size: var(--text-3xl);
-    font-weight: 800;
-    color: var(--gray-900);
-}
-
-.logo span {
-    color: var(--primary);
+.logo-img {
+    max-width: 4rem;
+    max-height: 4rem;
+    height: auto;
+    width: auto;
 }
 
 /* Buscador */
@@ -128,3 +112,152 @@
 }
 
 .deals a { color: var(--danger); font-weight: bold; }
+
+/* Control de visibilidad */
+.show-mobile { display: none; }
+
+/* Estilos del Sidebar */
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Oculto a la izquierda */
+    width: 28rem; /* 280px */
+    height: 100vh;
+    background-color: var(--white);
+    z-index: 2000;
+    transition: left 0.3s ease;
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-xl);
+}
+
+.mobile-sidebar.active { left: 0; }
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1500;
+}
+
+.sidebar-overlay.active { display: block; }
+
+.sidebar-header { margin-bottom: var(--spacing-xl); }
+.close-menu { font-size: 2.4rem; color: var(--gray-800); }
+
+.sidebar-list li a {
+    display: block;
+    padding: var(--spacing-md) 0;
+    font-size: var(--text-base);
+    color: var(--gray-700);
+    border-bottom: 1px solid var(--gray-50);
+}
+
+/* MEDIA QUERIES (Móvil y Tablet) */
+@media (max-width: 768px) {
+    .hide-mobile { display: none !important; }
+    .show-mobile { display: block; }
+
+    .navbar-grid {
+        grid-template-columns: 1fr auto; /* Logo | Iconos */
+        gap: var(--spacing-md);
+    }
+
+    .user-actions {
+        gap: var(--spacing-lg); /* Menos espacio entre iconos en móvil */
+    }
+
+    .menu-toggle {
+        font-size: 2.4rem;
+        color: var(--gray-800);
+        margin-left: var(--spacing-sm);
+    }
+    
+    .logo-img {
+        max-width: 3.5rem; /* Logo un poco más pequeño en móvil */
+    }
+}
+
+/* --- Ajustes Desktop (Categorías Colapsables) --- */
+.flex-nav {
+    display: flex;
+    align-items: center;
+}
+
+.all-cat-trigger {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: transparent;
+    border: none;
+    color: var(--gray-700);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--transition-fast);
+}
+
+.all-cat-trigger:hover {
+    color: var(--primary);
+}
+
+/* Lista que se encoge y estira horizontalmente */
+.collapsible-list {
+    display: flex;
+    gap: var(--spacing-xl);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+    max-width: 0; /* Cerrado por defecto */
+    opacity: 0;
+    white-space: nowrap;
+    transition: max-width 0.5s ease, opacity 0.3s ease, padding 0.5s ease;
+}
+
+/* Clase activa para mostrar con JS */
+.collapsible-list.active {
+    max-width: 120rem; /* Un valor alto para que quepan todas */
+    opacity: 1;
+    padding-left: var(--spacing-xl);
+}
+
+/* --- Ajuste Sidebar a la DERECHA --- */
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    right: -30rem; /* Oculto a la DERECHA */
+    left: auto; /* Anula el left previo */
+    width: 30rem;
+    height: 100vh;
+    background-color: var(--white);
+    z-index: 2000;
+    transition: right 0.3s ease;
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-xl);
+}
+
+.mobile-sidebar.active {
+    right: 0; /* Desliza desde la derecha */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.sidebar-title {
+    font-size: var(--text-lg);
+    font-weight: bold;
+    color: var(--gray-800);
+}
+
+.sidebar-hr {
+    margin: var(--spacing-md) 0;
+    border: 0;
+    border-top: 1px solid var(--gray-100);
+}
