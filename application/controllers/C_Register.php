@@ -1,92 +1,130 @@
 <?php
-require_once '../config/db_connect.php';
 
-header('Content-Type: application/json');
+// Controller del registro.
+// Se encarga de validar la informacion del formulario
+// y coordinar la creacion de persona + cuenta.
+class C_Register extends Controller {
 
-try {
-    if (empty($_POST['name']) || empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['document_number'])) {
-        throw new Exception('Todos los campos obligatorios deben ser completados');
+    private $registerModel;
+
+    public function __construct() {
+        parent::__construct();
+        $this->registerModel = $this->load_model('Register');
     }
 
-    // Verificar rol Cliente
-    $sqlCheckRole = "SELECT id FROM roleperson WHERE description = 'Cliente' LIMIT 1";
-    $stmtRole = $conexion->query($sqlCheckRole);
-    $roleId = $stmtRole->fetch(PDO::FETCH_COLUMN);
-
-    if (!$roleId) {
-        throw new Exception('Error: Rol de Cliente no encontrado');
+    // Carga la vista principal del registro.
+    public function index() {
+        $this->view->set_view('index');
     }
 
-    // 🔹 Verificar correo existente
-    $sqlCheckEmail = "SELECT COUNT(*) FROM cuenta WHERE email = :email";
-    $stmtEmail = $conexion->prepare($sqlCheckEmail);
-    $stmtEmail->execute([':email' => $_POST['email']]);
-    if ($stmtEmail->fetchColumn() > 0) {
-        throw new Exception('El correo ya existe en el sistema');
+    // Orquesta el registro completo:
+    // 1. valida datos
+    // 2. revisa duplicados
+    // 3. crea person
+    // 4. crea account
+    // 5. confirma transaccion
+    public function store() {
+        try {
+            $payload = $this->build_payload();
+            $defaultRoleId = $this->registerModel->find_default_role_id();
+
+            if (!$defaultRoleId) {
+                throw new Exception('No se encontro un rol base para nuevos usuarios.');
+            }
+
+            if ($this->registerModel->email_exists($payload['email'])) {
+                throw new Exception('El correo ya existe en el sistema.');
+            }
+
+            if ($this->registerModel->username_exists($payload['username'])) {
+                throw new Exception('El nombre de usuario ya esta en uso.');
+            }
+
+            if ($this->registerModel->document_exists($payload['document_number'])) {
+                throw new Exception('El numero de documento ya existe.');
+            }
+
+            if (!$this->registerModel->document_type_exists($payload['document_type_id'])) {
+                throw new Exception('Selecciona un tipo de documento valido.');
+            }
+
+            // El registro usa transaccion porque se insertan dos tablas.
+            // Si una falla, ninguna debe quedar a medias.
+            $this->registerModel->begin_transaction();
+
+            $personId = $this->registerModel->create_person([
+                'name' => $payload['name'],
+                'document_type_id' => $payload['document_type_id'],
+                'document_number' => $payload['document_number'],
+                'address' => $payload['address'],
+                'phone' => $payload['phone'],
+                'email' => $payload['email'],
+                'role_person_id' => $defaultRoleId
+            ]);
+
+            $this->registerModel->create_account([
+                'id_person' => $personId,
+                'username' => $payload['username'],
+                'password' => password_hash($payload['password'], PASSWORD_DEFAULT),
+                'email' => $payload['email']
+            ]);
+
+            $this->registerModel->commit_transaction();
+
+            Response::json([
+                'success' => true,
+                'message' => 'Registro completado correctamente.'
+            ]);
+        } catch (Exception $e) {
+            $this->registerModel->rollback_transaction();
+
+            Response::json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ], 422);
+        }
     }
 
-    // 🔹 Verificar username existente
-    $sqlCheckUser = "SELECT COUNT(*) FROM cuenta WHERE username = :username";
-    $stmtUser = $conexion->prepare($sqlCheckUser);
-    $stmtUser->execute([':username' => $_POST['username']]);
-    if ($stmtUser->fetchColumn() > 0) {
-        throw new Exception('El nombre de usuario ya está en uso, elige otro');
+    // Construye un arreglo limpio con lo que llega por POST.
+    // Aqui tambien se concentra la validacion basica del formulario.
+    private function build_payload() {
+        $name = trim($_POST['name'] ?? '');
+        $username = trim($_POST['username'] ?? '');
+        $password = $_POST['password'] ?? '';
+        $email = trim($_POST['email'] ?? '');
+        $documentNumber = trim($_POST['document_number'] ?? '');
+        $documentTypeId = (int) ($_POST['document_type_id'] ?? 0);
+        $address = trim($_POST['address'] ?? '');
+        $phone = trim($_POST['phone'] ?? '');
+
+        if (
+            $name === '' ||
+            $username === '' ||
+            $password === '' ||
+            $email === '' ||
+            $documentNumber === '' ||
+            $documentTypeId <= 0
+        ) {
+            throw new Exception('Completa todos los campos obligatorios.');
+        }
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new Exception('Ingresa un correo valido.');
+        }
+
+        if (strlen($password) < 8) {
+            throw new Exception('La contrasena debe tener al menos 8 caracteres.');
+        }
+
+        return [
+            'name' => $name,
+            'username' => $username,
+            'password' => $password,
+            'email' => $email,
+            'document_number' => $documentNumber,
+            'document_type_id' => $documentTypeId,
+            'address' => $address,
+            'phone' => $phone
+        ];
     }
-
-    // 🔹 Verificar documento existente
-    $sqlCheckDoc = "SELECT COUNT(*) FROM person WHERE document_number = :document_number";
-    $stmtDoc = $conexion->prepare($sqlCheckDoc);
-    $stmtDoc->execute([':document_number' => $_POST['document_number']]);
-    if ($stmtDoc->fetchColumn() > 0) {
-        throw new Exception('El número de documento ya existe en el sistema');
-    }
-
-    $conexion->beginTransaction();
-
-    // Insert en person
-    $sqlPerson = "INSERT INTO person (name, document_type_id, document_number, address, phone, email, status, role_person_id) 
-                  VALUES (:name, :document_type_id, :document_number, :address, :phone, :email, 1, :role_person_id)";
-    $stmtPerson = $conexion->prepare($sqlPerson);
-    $stmtPerson->execute([
-        ':name' => $_POST['name'],
-        ':document_type_id' => $_POST['document_type_id'],
-        ':document_number' => $_POST['document_number'],
-        ':address' => $_POST['address'],
-        ':phone' => $_POST['phone'],
-        ':email' => $_POST['email'],
-        ':role_person_id' => $roleId
-    ]);
-
-    $personId = $conexion->lastInsertId();
-
-    // Insert en cuenta
-    $sqlCuenta = "INSERT INTO cuenta (id_person, username, password, email) 
-                  VALUES (:id_person, :username, :password, :email)";
-    $stmtCuenta = $conexion->prepare($sqlCuenta);
-    $stmtCuenta->execute([
-        ':id_person' => $personId,
-        ':username' => $_POST['username'],
-        ':password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
-        ':email' => $_POST['email']
-    ]);
-
-    $conexion->commit();
-
-    echo json_encode(['success' => true, 'message' => 'Registro exitoso']);
-} catch (PDOException $e) {
-    if ($conexion->inTransaction()) {
-        $conexion->rollBack();
-    }
-
-    // Si es error de clave duplicada (23000)
-    if ($e->getCode() == 23000) {
-        echo json_encode(['success' => false, 'message' => 'Correo, usuario o documento ya registrado en el sistema']);
-    } else {
-        echo json_encode(['success' => false, 'message' => 'Error en el registro: ' . $e->getMessage()]);
-    }
-} catch (Exception $e) {
-    if ($conexion->inTransaction()) {
-        $conexion->rollBack();
-    }
-    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
 }

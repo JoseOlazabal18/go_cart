@@ -10,7 +10,7 @@ class View {
     // --
     public function __construct(Request $request) {
         // --
-        $this->controller = strtolower($request->get_controller());
+        $this->controller = trim($request->get_controller());
         $this->js = array();
         $this->menu = array();
     }
@@ -33,7 +33,7 @@ class View {
         $params = array(
             'js' => $js,
             'menu' => $menu
-		);
+        );
         // --
         $route_view = ROOT.'application/views'. DS . $this->controller . DS . $view .'.php';
         // --
@@ -54,7 +54,7 @@ class View {
                     include_once ROOT . 'application/views/layout/header.php';
                     include_once $route_view;
                     include_once ROOT . 'application/views/layout/footer.php';
-            } else {
+                } else {
                     include_once $route_view;
                 }
             } else {
@@ -68,9 +68,9 @@ class View {
         // --
         if ($js) {
             $this->js[] = BASE_URL . 'application/views/' . $this->controller . '/js/' . $js . '.js';
-		} else {
-			throw new Exception('Error of js');
-		}
+        } else {
+            throw new Exception('Error of js');
+        }
     }
 
     // --

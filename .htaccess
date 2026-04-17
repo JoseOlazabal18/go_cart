@@ -1,6 +1,6 @@
 RewriteEngine On
 # Si el proyecto está en una subcarpeta, agrégala aquí:
-RewriteBase /Carrito-Migracion/go_cart/
+RewriteBase /go_cart/
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

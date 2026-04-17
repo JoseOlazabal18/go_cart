@@ -32,4 +32,24 @@ class Model {
 
     }
 
+    public function begin_transaction() {
+        $this->pdo->beginTransaction();
+    }
+
+    public function commit_transaction() {
+        if ($this->pdo->inTransaction()) {
+            $this->pdo->commit();
+        }
+    }
+
+    public function rollback_transaction() {
+        if ($this->pdo->inTransaction()) {
+            $this->pdo->rollBack();
+        }
+    }
+
+    public function get_last_insert_id() {
+        return $this->pdo->lastInsertId();
+    }
+
 }

@@ -1,1 +1,4 @@
 .qodo
+
+/vendor/
+.env
