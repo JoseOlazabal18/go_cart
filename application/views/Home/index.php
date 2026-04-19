@@ -1,140 +1,58 @@
-<main class="home-content">
-    <section class="hero-slider container">
-        <div class="hero-banner">
-            <div class="hero-text">
-                <span class="badge">Novedad 2026</span>
-                <h1>Domina el Futuro con lo último en Gaming</h1>
-                <p>Equipos de alto rendimiento con procesadores de última generación. Solo en JB Tech.</p>
-                <a href="#" class="btn btn-primary">Ver Catálogo</a>
-            </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=800&q=80" alt="Laptop Gaming">
-            </div>
-        </div>
-    </section>
+<section class="hero-soft">
 
-    <!-- Slider de Categorias -->
-    <section class="slider-section">
-        <div class="slider">
-            <div class="slide-track">
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
-                </div>
-                <div class="slide">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="container hero-grid">
 
-    <section class="benefits container">
-        <div class="benefit-card">
-            <i class="fa-solid fa-shield-halved"></i>
-            <div>
-                <h3>Garantía Extendida</h3>
-                <p>Protección oficial de marca</p>
-            </div>
-        </div>
-        <div class="benefit-card">
-            <i class="fa-solid fa-credit-card"></i>
-            <div>
-                <h3>Pago Seguro</h3>
-                <p>Hasta 12 cuotas sin intereses</p>
-            </div>
-        </div>
-        <div class="benefit-card">
-            <i class="fa-solid fa-headset"></i>
-            <div>
-                <h3>Soporte 24/7</h3>
-                <p>Especialistas siempre listos</p>
-            </div>
-        </div>
-    </section>
+    <!-- TEXTO -->
+    <div class="hero-content">
 
-    <section class="featured-products container">
-        <div class="section-header">
-            <h2>Ofertas Destacadas</h2>
-            <a href="#">Ver todo <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
+      <span class="badge">Next Gen Technology</span>
 
-        <div class="product-grid">
-            <article class="product-card">
-                <div class="card-badge">Oferta</div>
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="Macbook">
-                </div>
-                <div class="product-info">
-                    <span class="category">Laptops</span>
-                    <h3>MacBook Pro M3 Max - 14"</h3>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        <span>(45)</span>
-                    </div>
-                    <div class="price">
-                        <span class="old-price">S/ 12,499</span>
-                        <span class="current-price">S/ 10,999</span>
-                    </div>
-                    <button class="btn-add-cart disabled" data-id="1">
-                        Añadir al Carrito
-                    </button>
-                </div>
-            </article>
+      <h1>
+        Construye el futuro <br>
+        con tecnología simple
+      </h1>
 
-            <article class="product-card">
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=400&q=80" alt="Smartphone">
-                </div>
-                <div class="product-info">
-                    <span class="category">Celulares</span>
-                    <h3>iPhone 15 Pro Max 256GB</h3>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span>(128)</span>
-                    </div>
-                    <div class="price">
-                        <span class="current-price">S/ 5,899</span>
-                    </div>
-                    <button class="btn-add-cart" data-id="2">
-                        Añadir al Carrito
-                    </button>
-                </div>
-            </article>
-            </div>
-    </section>
-</main>
+      <p>
+        Soluciones modernas diseñadas para rendimiento, escalabilidad 
+        y experiencias digitales fluidas.
+      </p>
+
+      <div class="actions">
+        <a href="#" class="btn-primary">Comenzar</a>
+        <a href="#" class="btn-light">Ver demo</a>
+      </div>
+
+    </div>
+
+    <!-- IMAGEN -->
+    <div class="hero-visual">
+  <div class="image-card carousel-wrapper">
+
+    <div class="carousel">
+
+      <input type="radio" name="slider" id="item-1" checked>
+      <input type="radio" name="slider" id="item-2">
+      <input type="radio" name="slider" id="item-3">
+
+      <div class="cards">
+        <label class="card" for="item-1" id="song-1">
+          <img src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?auto=format&fit=crop&w=882&q=80">
+        </label>
+
+        <label class="card" for="item-2" id="song-2">
+          <img src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?auto=format&fit=crop&w=1234&q=80">
+        </label>
+
+        <label class="card" for="item-3" id="song-3">
+          <img src="https://images.unsplash.com/photo-1533461502717-83546f485d24?auto=format&fit=crop&w=900&q=60">
+        </label>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+  </div>
+
+</section>

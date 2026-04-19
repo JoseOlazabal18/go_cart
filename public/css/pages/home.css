@@ -1,139 +1,203 @@
+/* =========================
+   HERO SOFT UI (PASTEL)
+========================= */
 
-/* Hero Banner */
-.hero-banner {
-    background: linear-gradient(135deg, var(--primary-bg) 0%, #ffffff 100%);
-    border-radius: var(--radius-lg);
+.hero-soft {
+    padding: 6rem 2rem;
+    background: linear-gradient(
+        180deg,
+        #f8fafc 0%,
+        #eef2ff 100%
+    );
+}
+
+/* Layout */
+.hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 4rem;
     align-items: center;
-    padding: var(--spacing-4xl);
-    margin: var(--spacing-xl) 0;
-    overflow: hidden;
 }
 
-.hero-text h1 { font-size: var(--text-5xl); line-height: 1.1; margin-bottom: var(--spacing-md); color: var(--gray-900); }
-.hero-text p { font-size: var(--text-lg); color: var(--gray-600); margin-bottom: var(--spacing-xl); }
-
-/* Product Cards */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--spacing-lg);
+@media (min-width: 992px) {
+    .hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 6rem;
+    }
 }
 
-.product-card {
-    background: var(--white);
-    border: 1px solid var(--gray-100);
-    border-radius: var(--radius-md);
-    padding: var(--spacing-md);
-    transition: var(--transition);
-    position: relative;
+/* =========================
+   TEXTO
+========================= */
+
+.hero-content {
+    max-width: 52rem;
 }
 
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+.badge {
+    display: inline-block;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary);
+    padding: 0.5rem 1.4rem;
+    border-radius: 999px;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
 }
 
-.btn-add-cart {
-    width: 100%;
-    background-color: var(--primary);
-    color: var(--white);
-    padding: var(--spacing-md);
-    border-radius: var(--radius);
-    margin-top: var(--spacing-md);
+.hero-content h1 {
+    font-size: clamp(3.2rem, 5vw, 5.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--gray-900);
+    margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+    font-size: 1.7rem;
+    color: var(--gray-600);
+    margin-bottom: 2.5rem;
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.actions {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    padding: 1.3rem 2.5rem;
+    border-radius: 0.7rem;
     font-weight: 600;
+    transition: 0.3s;
 }
 
-.btn-add-cart.disabled {
-    background-color: var(--gray-300);
-    cursor: not-allowed;
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
 }
 
-
-/*Carrusel*/
-/* --- ESTILOS ESPECÍFICOS PARA LA HOME --- */
-
-/* IMPORTANTE: Eliminamos el flex del body. 
-   Si quieres que toda la página sea gris, úsalo aquí, 
-   si no, quita esta regla de background. 
-*/
-body {
-    background-color: #f4f4f4; /* Un gris más suave para ecommerce */
-}
-
-/* --- ANIMACIÓN DEL SLIDER --- */
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    /* Ajustamos a rem (250px = 25rem) */
-    100% { transform: translateX(calc(-25rem * 7)); }
-}
-
-/* --- CONTENEDOR DEL SLIDER (La Sección) --- */
-.slider-section {
-    padding: 4rem 0; /* Espaciado arriba y abajo */
-    background: white; /* Fondo blanco para que resalten los logos */
-    margin: 2rem 0;
-}
-
-.slider {
+/* botón suave */
+.btn-light {
     background: white;
-    height: 10rem; /* 100px */
-    margin: auto;
-    overflow: hidden;
-    position: relative;
-    /* width: 96rem;  <- Quitado para que sea responsivo */
-    max-width: 120rem; /* Ajuste según tu clase .container */
+    border: 1px solid var(--gray-200);
+    padding: 1.3rem 2.5rem;
+    border-radius: 0.7rem;
+    color: var(--gray-700);
+    transition: 0.3s;
 }
 
-/* Degradados laterales tipo "espejo" */
-.slider::before,
-.slider::after {
-    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-    content: "";
-    height: 10rem;
-    position: absolute;
-    width: 20rem;
-    z-index: 2;
+.btn-light:hover {
+    background: var(--primary-bg);
+    color: var(--primary);
 }
 
-.slider::after {
-    right: 0;
-    top: 0;
-    transform: rotateZ(180deg);
-}
+/* =========================
+   IMAGEN
+========================= */
 
-.slider::before {
-    left: 0;
-    top: 0;
-}
-
-/* El carril que se mueve */
-.slide-track {
-    animation: scroll 40s linear infinite;
+.hero-visual {
     display: flex;
-    width: calc(25rem * 14); /* 14 fotos de 250px */
-}
-
-.slide {
-    height: 10rem;
-    width: 25rem;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 2rem;
 }
 
-.slide img {
+/* =========================
+   CARRUSEL INTEGRADO
+========================= */
+
+.carousel {
     width: 100%;
-    height: auto;
-    /* Filtro opcional: poner logos en gris y que coloreen al pasar el mouse */
-    filter: grayscale(100%);
-    opacity: 0.6;
-    transition: all .3s ease;
+    height: 320px;
+    position: relative;
 }
 
-.slide img:hover {
-    filter: grayscale(0%);
+/* Ocultar radios */
+.carousel input {
+    display: none;
+}
+
+/* Cards */
+.carousel .cards {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel .card {
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+    transition: transform .4s ease, opacity .4s ease;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+/* POSICIONES */
+#item-1:checked ~ .cards #song-3,
+#item-2:checked ~ .cards #song-1,
+#item-3:checked ~ .cards #song-2 {
+    transform: translateX(-40%) scale(.8);
+    opacity: .4;
+    z-index: 0;
+}
+
+#item-1:checked ~ .cards #song-2,
+#item-2:checked ~ .cards #song-3,
+#item-3:checked ~ .cards #song-1 {
+    transform: translateX(40%) scale(.8);
+    opacity: .4;
+    z-index: 0;
+}
+
+#item-1:checked ~ .cards #song-1,
+#item-2:checked ~ .cards #song-2,
+#item-3:checked ~ .cards #song-3 {
+    transform: translateX(0) scale(1);
     opacity: 1;
+    z-index: 1;
+}
+
+/* =========================
+   IMAGE CARD AJUSTE
+========================= */
+
+.image-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    max-width: 500px;
+}
+.carousel-wrapper {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+    .hero-soft {
+        text-align: center;
+        padding: 5rem 2rem;
+    }
+
+    .actions {
+        justify-content: center;
+    }
 }

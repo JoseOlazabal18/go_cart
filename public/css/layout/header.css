@@ -19,11 +19,27 @@
     border-bottom: 1px solid var(--gray-100);
 }
 
+/* --- Ajuste de Navbar Grid --- */
 .navbar-grid {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    /* 3 Columnas: Logo (auto) | Nav (1fr para que crezca) | Acciones (auto) */
+    grid-template-columns: auto 1fr auto; 
     gap: var(--spacing-2xl);
     align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-text {
+    font-weight: 800;
+    font-size: 2.4rem;
+    color: var(--primary);
+    line-height: 1;
 }
 
 .logo-img {
@@ -33,15 +49,6 @@
     width: auto;
 }
 
-/* Buscador */
-.search-container {
-    display: flex;
-    background-color: var(--gray-100);
-    border-radius: var(--radius-full);
-    padding: 2px;
-    border: 2px solid transparent;
-    transition: var(--transition-fast);
-}
 
 .search-container:focus-within {
     border-color: var(--primary-light);
@@ -99,6 +106,27 @@
 
 /* Categorías */
 .categories-nav { background-color: var(--gray-50); }
+
+/* Navegación Principal Horizontal */
+.nav-main {
+    display: flex;
+    justify-content: center; /* Los enlaces de Inicio, Productos... ahora se centran */
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-main a {
+    text-decoration: none;
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 1.8rem;
+    transition: color 0.3s;
+}
+
+.nav-main a:hover {
+    color: var(--primary);
+}
+
 .nav-list {
     display: flex;
     gap: var(--spacing-xl);
@@ -116,40 +144,111 @@
 /* Control de visibilidad */
 .show-mobile { display: none; }
 
+.dropdown-btn {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: var(--spacing-md) 0;
+    font-size: var(--text-base);
+    color: var(--primary-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid var(--gray-50);
+}
+
+.dropdown-content {
+    max-height: 0; /* Oculto */
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    list-style: none;
+    padding-left: 15px;
+}
+
+.dropdown-content.active {
+    max-height: 500px; /* Se expande */
+    padding-bottom: 10px;
+}
+
+.dropdown-content li a {
+    border-bottom: none !important;
+    font-size: 1.5rem !important;
+}
+
+/* Rotación del icono cuando abre */
+.dropdown-btn i {
+    transition: transform 0.3s;
+}
+.dropdown-btn.active i {
+    transform: rotate(180deg);
+}
+
+
 /* Estilos del Sidebar */
 .mobile-sidebar {
     position: fixed;
     top: 0;
-    left: -100%; /* Oculto a la izquierda */
-    width: 28rem; /* 280px */
+    right: -100%; /* Totalmente oculto a la derecha */
+    width: 28rem; /* 280px aprox */
+    max-width: 85%; /* Para que no tape toda la pantalla en móviles pequeños */
     height: 100vh;
     background-color: var(--white);
     z-index: 2000;
-    transition: left 0.3s ease;
+    transition: right 0.3s ease-in-out; /* Animación suave solo en 'right' */
     padding: var(--spacing-lg);
     box-shadow: var(--shadow-xl);
+    display: flex;
+    flex-direction: column;
 }
 
-.mobile-sidebar.active { left: 0; }
+/* Cuando el sidebar está activo */
+.mobile-sidebar.active {
+    right: 0; /* Entra desde la derecha */
+}
 
 .sidebar-overlay {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
     z-index: 1500;
 }
 
-.sidebar-overlay.active { display: block; }
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
 
-.sidebar-header { margin-bottom: var(--spacing-xl); }
-.close-menu { font-size: 2.4rem; color: var(--gray-800); }
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.sidebar-title {
+    font-size: var(--text-lg);
+    font-weight: bold;
+    color: var(--gray-800);
+}
+
+.close-menu {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--gray-800);
+    cursor: pointer;
+}
 
 .sidebar-list li a {
     display: block;
     padding: var(--spacing-md) 0;
     font-size: var(--text-base);
-    color: var(--gray-700);
+    color: var(--primary-dark);
     border-bottom: 1px solid var(--gray-50);
 }
 
@@ -250,11 +349,7 @@
     margin-bottom: var(--spacing-xl);
 }
 
-.sidebar-title {
-    font-size: var(--text-lg);
-    font-weight: bold;
-    color: var(--gray-800);
-}
+
 
 .sidebar-hr {
     margin: var(--spacing-md) 0;
