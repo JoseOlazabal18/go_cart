@@ -21,7 +21,9 @@ abstract class Controller {
             require_once $route_model;
             return new $model;
         } else {
+
             throw new Exception('Error loading model');
+            
         }
     }
 }
