@@ -100,32 +100,7 @@
         
         <div class="carousel-container" id="carousel-container">
             <div class="carousel-track" id="carousel-track">
-                
-                <?php if (isset($productos) && !empty($productos)): ?>
-                    <?php foreach ($productos as $item): ?>
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="public/img/products/<?php echo $item['image']; ?>" alt="<?php echo $item['name']; ?>">
-                                <div class="product-overlay">
-                                    <button class="btn-action cart" title="Añadir al carrito">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </button>
-                                    <button class="btn-action details" title="Ver detalles">
-                                        <i class="fa-solid fa-eye"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="product-cat"><?php echo $item['category'] ?? 'Tecnología'; ?></span>
-                                <h3 class="product-name"><?php echo $item['name']; ?></h3>
-                                <p class="product-price">S/ <?php echo number_format($item['price'], 2); ?></p>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <p>No hay productos disponibles por ahora.</p>
-                <?php endif; ?>
-
+                <!-- 🔥 Aquí JS insertará los 4 productos -->
             </div>
         </div>
     </div>

@@ -6,17 +6,33 @@ class M_Products extends Model {
 		parent::__construct();
     }
 
-    // Consulta para traer los 4 productos destacados
-    public function get_products_home() {
+public function get_products_limit() {
         try {
-            // Ajusta los nombres de las columnas según tu tabla 'products'
-            $sql = "SELECT id, name, price, image, category FROM products WHERE status = 1 LIMIT 4";
+            $sql = 'SELECT 
+                        id,
+                        code,
+                        name,
+                        description,
+                        price
+                    FROM products
+                    WHERE status = 1
+                    LIMIT 4';
+
+            // 🔥 CORRECTO
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if ($result) {
+                $response = array('status' => 'OK', 'result' => $result);
+            } else {
+                $response = array('status' => 'ERROR', 'result' => array());
+            }
+
         } catch (PDOException $e) {
-            error_log("Error en M_Products: " . $e->getMessage());
-            return [];
+            $response = array('status' => 'EXCEPTION', 'result' => $e);
         }
+
+        return $response;
     }
 }

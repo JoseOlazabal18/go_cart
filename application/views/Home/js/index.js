@@ -1,51 +1,65 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- 1. SLIDER HERO (RADIOS) ---
-    const radios = document.querySelectorAll('.carousel input');
-    if (radios.length > 0) {
-        let current = 0;
-        setInterval(() => {
-            radios[current].checked = false;
-            current = (current + 1) % radios.length;
-            radios[current].checked = true;
-        }, 3500);
-    }
 
-    // --- 2. CARRUSEL DE PRODUCTOS ---
-    const track = document.getElementById('carousel-track');
-    const container = document.getElementById('carousel-container');
-    
-    if (track && container) {
-        let scrollAmount = 0;
-        let step = 0.8; // Velocidad suave
-        let isPaused = false;
+  // 🎯 Carrusel superior
+  const radios = document.querySelectorAll('.carousel input');
+  let current = 0;
 
-        const animate = () => {
-            if (!isPaused) {
-                scrollAmount -= step;
-                const maxScroll = track.scrollWidth - container.offsetWidth;
+  setInterval(() => {
+    radios[current].checked = false;
+    current = (current + 1) % radios.length;
+    radios[current].checked = true;
+  }, 3500);
+
+  // 🔥 CARGAR PRODUCTOS
+  function get_products() {
+    $.ajax({
+      url: BASE_URL + "products/get_products",
+      type: "GET",
+      dataType: "json",
+      success: function (data) {
+
+        let html = "";
+
+        if (data.status === "OK") {
+
+          data.data.forEach((item) => {
+            html += `
+              <div class="product-card">
                 
-                if (Math.abs(scrollAmount) >= maxScroll) {
-                    scrollAmount = 0; 
-                }
-                track.style.transform = `translateX(${scrollAmount}px)`;
-            }
-            requestAnimationFrame(animate);
-        };
+                <div class="product-image">
+                  <img src="public/img/products/default.jpg" alt="${item.name}">
+                  
+                  <div class="product-overlay">
+                    <button class="btn-action cart" title="Añadir al carrito">
+                      <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-action details" title="Ver detalles">
+                      <i class="fa-solid fa-eye"></i>
+                    </button>
+                  </div>
 
-        container.addEventListener('mouseenter', () => isPaused = true);
-        container.addEventListener('mouseleave', () => isPaused = false);
-        
-        animate();
-    }
+                </div>
 
-    // --- 3. SIDEBAR MÓVIL (ACORDEÓN) ---
-    const catToggle = document.getElementById('sidebar-cat-toggle');
-    const catList = document.getElementById('sidebar-cat-list');
-    if (catToggle) {
-        catToggle.addEventListener('click', () => {
-            catList.classList.toggle('active');
-            catToggle.classList.toggle('active');
-        });
-    }
+                <div class="product-info">
+                  <span class="product-cat">Tecnología</span>
+                  <h3 class="product-name">${item.name}</h3>
+                  <p class="product-price">S/ ${parseFloat(item.price).toFixed(2)}</p>
+                </div>
+
+              </div>
+            `;
+          });
+
+        } else {
+          html = "<p>No hay productos disponibles</p>";
+        }
+
+        document.getElementById("carousel-track").innerHTML = html;
+      }
+    });
+  }
+
+  // 🚀 ejecutar
+  get_products();
+
 });
