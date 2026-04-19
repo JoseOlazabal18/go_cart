@@ -5,23 +5,23 @@
     <!-- TEXTO -->
     <div class="hero-content">
 
-      <span class="badge">Next Gen Technology</span>
+      <span class="badge">Lo nuevo en tecnología</span>
 
       <h1>
-        Construye el futuro <br>
-        con tecnología simple
+        Tu Tecnología <br>
+        al Mejor Precio
       </h1>
 
       <p>
-        Soluciones modernas diseñadas para rendimiento, escalabilidad 
-        y experiencias digitales fluidas.
+        Descubre las últimas innovaciones en electrónicos, gaming y tecnología con garantía.
       </p>
 
       <div class="actions">
-        <a href="#" class="btn-primary">Comenzar</a>
-        <a href="#" class="btn-light">Ver demo</a>
+        <a href="#" class="btn-primary">
+          <i class="fas fa-shopping-cart"></i>
+          Ver Catálogo
+        </a>
       </div>
-
     </div>
 
     <!-- IMAGEN -->
@@ -36,18 +36,17 @@
 
       <div class="cards">
         <label class="card" for="item-1" id="song-1">
-          <img src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?auto=format&fit=crop&w=882&q=80">
+          <img src="public/img/airphone_main.jpg" alt="Hero Image 1">
         </label>
 
         <label class="card" for="item-2" id="song-2">
-          <img src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?auto=format&fit=crop&w=1234&q=80">
+          <img src="public/img/teclados_main.jpg" alt="Hero Image 1">
         </label>
 
         <label class="card" for="item-3" id="song-3">
-          <img src="https://images.unsplash.com/photo-1533461502717-83546f485d24?auto=format&fit=crop&w=900&q=60">
+          <img src="public/img/monitor_main.jpg" alt="Hero Image 1">
         </label>
       </div>
-
     </div>
 
   </div>

@@ -4,11 +4,7 @@
 
 .hero-soft {
     padding: 6rem 2rem;
-    background: linear-gradient(
-        180deg,
-        #f8fafc 0%,
-        #eef2ff 100%
-    );
+    background-color: var(--white);
 }
 
 /* Layout */
@@ -75,6 +71,9 @@
     border-radius: 0.7rem;
     font-weight: 600;
     transition: 0.3s;
+}
+.btn-primary i {
+    margin-right: 0.8rem;
 }
 
 .btn-primary:hover {
@@ -176,10 +175,8 @@
 ========================= */
 
 .image-card {
-    background: white;
     padding: 1rem;
     border-radius: 1.5rem;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
     max-width: 500px;
 }
 .carousel-wrapper {
@@ -188,7 +185,7 @@
 }
 
 /* =========================
-   MOBILE
+    MOBILE
 ========================= */
 
 @media (max-width: 768px) {
