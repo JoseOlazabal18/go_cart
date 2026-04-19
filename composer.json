@@ -1,0 +1,12 @@
+{
+    "name": "percy/go_cart",
+    "authors": [
+        {
+            "name": "ekestebanl",
+            "email": "ekestebandaniel@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^7.0"
+    }
+}

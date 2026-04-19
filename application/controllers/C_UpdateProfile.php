@@ -19,7 +19,7 @@ try {
     if (isset($_POST['check_password'])) {
         $current = $_POST['current_password'] ?? '';
 
-        $stmt = $conexion->prepare("SELECT password FROM cuenta WHERE id_person = ?");
+        $stmt = $conexion->prepare("SELECT password FROM account WHERE id_person = ?");
         $stmt->execute([$_SESSION['person_id']]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -45,7 +45,7 @@ try {
 
         // Guardar nueva contraseña encriptada.
         $newHash = password_hash($new, PASSWORD_DEFAULT);
-        $stmt = $conexion->prepare("UPDATE cuenta SET password = ? WHERE id_person = ?");
+        $stmt = $conexion->prepare("UPDATE account SET password = ? WHERE id_person = ?");
         $stmt->execute([$newHash, $_SESSION['person_id']]);
 
         echo json_encode(["success" => true, "message" => "¡Contraseña actualizada correctamente!"]);
@@ -67,7 +67,7 @@ try {
     ]);
 
     $stmt2 = $conexion->prepare("
-        UPDATE cuenta 
+        UPDATE account 
         SET username = ? 
         WHERE id_person = ?
     ");

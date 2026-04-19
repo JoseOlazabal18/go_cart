@@ -16,7 +16,7 @@
             </ul>
 
             <div class="user-actions">
-                <a href="#" class="action-item">
+                <a href="<?php echo BASE_URL; ?>Login" class="action-item">
                     <i class="fa-regular fa-user"></i>
                     <span class="hide-mobile">Mi Cuenta</span>
                 </a>
@@ -49,6 +49,7 @@
         </div>
     </div>
 </header>
+
 
 <div class="sidebar-overlay" id="overlay"></div>
 

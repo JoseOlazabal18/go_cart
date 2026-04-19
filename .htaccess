@@ -5,7 +5,9 @@ RewriteBase /go_cart/
 
 # No redireccionar si es un archivo o carpeta real (ej: imágenes, css)
 RewriteCond %{REQUEST_FILENAME} !-d
+
 RewriteCond %{REQUEST_FILENAME} !-f
 
 # Redireccionar todo lo demás al index.php
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+

@@ -1,0 +1,7 @@
+.login-page {
+    max-width: 560px;
+}
+
+.login-page .auth-panel--card {
+    width: 100%;
+}

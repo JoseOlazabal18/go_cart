@@ -7,7 +7,9 @@ abstract class Controller {
     public function __construct() {
         $this->view = new View(new Request);
 
-        session_start();
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
         $this->session = $_SESSION;
     }
 

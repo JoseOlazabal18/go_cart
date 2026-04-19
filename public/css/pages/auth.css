@@ -1,0 +1,230 @@
+.auth-shell {
+    width: min(1120px, calc(100% - 32px));
+    margin: 48px auto;
+    display: grid;
+    gap: 24px;
+}
+
+.auth-shell--split {
+    grid-template-columns: minmax(280px, 1fr) minmax(340px, 460px);
+}
+
+.auth-panel {
+    border-radius: 28px;
+}
+
+.auth-panel--brand {
+    padding: 48px;
+    background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 58%, #38bdf8 100%);
+    color: #f8fafc;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+}
+
+.auth-panel--brand h1 {
+    margin: 12px 0 16px;
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    line-height: 1.05;
+}
+
+.auth-panel--brand p {
+    margin: 0;
+    max-width: 52ch;
+    color: rgba(248, 250, 252, 0.88);
+}
+
+.auth-eyebrow,
+.auth-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    color: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.auth-points {
+    margin: 28px 0 0;
+    padding-left: 18px;
+    display: grid;
+    gap: 12px;
+    color: rgba(248, 250, 252, 0.95);
+}
+
+.auth-panel--card {
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    border: 1px solid #dbeafe;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+}
+
+.auth-panel--wide {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.auth-card {
+    padding: 36px;
+}
+
+.auth-card h2 {
+    margin: 16px 0 8px;
+    font-size: clamp(1.8rem, 2.2vw, 2.6rem);
+    color: #0f172a;
+}
+
+.auth-copy {
+    margin: 0 0 24px;
+    color: #475569;
+}
+
+.auth-form {
+    display: grid;
+    gap: 18px;
+}
+
+.auth-form--grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.auth-field {
+    display: grid;
+    gap: 8px;
+}
+
+.auth-field--full {
+    grid-column: 1 / -1;
+}
+
+.auth-field span {
+    color: #0f172a;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.auth-field input,
+.auth-field select {
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 14px 16px;
+    font-size: 1rem;
+    color: #0f172a;
+    background: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.auth-field input:focus,
+.auth-field select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    transform: translateY(-1px);
+}
+
+.auth-button {
+    border: 0;
+    border-radius: 16px;
+    padding: 14px 18px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.auth-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(37, 99, 235, 0.22);
+}
+
+.auth-button:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.auth-button--ghost {
+    color: #0f172a;
+    background: #e2e8f0;
+}
+
+.auth-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.auth-links--single {
+    justify-content: flex-start;
+}
+
+.auth-links a {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+.recovery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.recovery-step {
+    padding: 22px;
+    border: 1px solid #dbeafe;
+    border-radius: 24px;
+    background: #f8fbff;
+}
+
+.recovery-step h3 {
+    margin: 0 0 8px;
+    color: #0f172a;
+}
+
+.recovery-step p {
+    margin: 0 0 18px;
+    color: #475569;
+}
+
+@media (max-width: 920px) {
+    .auth-shell--split,
+    .recovery-grid,
+    .auth-form--grid {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-panel--brand,
+    .auth-card,
+    .recovery-step {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 640px) {
+    .auth-shell {
+        width: min(100% - 20px, 100%);
+        margin: 24px auto;
+    }
+
+    .auth-panel--brand,
+    .auth-card,
+    .recovery-step {
+        padding: 22px;
+        border-radius: 22px;
+    }
+
+    .auth-links {
+        flex-direction: column;
+    }
+}

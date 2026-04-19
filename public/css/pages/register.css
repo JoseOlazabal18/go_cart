@@ -1,0 +1,3 @@
+.register-page .auth-panel--wide {
+    width: min(980px, 100%);
+}
