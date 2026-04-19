@@ -53,7 +53,7 @@
       </p>
 
       <div class="actions">
-        <a href="#" class="btn-primary">
+        <a href="<?php echo BASE_URL; ?>products" class="btn-primary">
           <i class="fas fa-shopping-cart"></i>
           Ver Catálogo
         </a>
@@ -90,6 +90,20 @@
 
   </div>
 
+</section>
+
+
+<!--000-->
+<section class="products-carousel-section">
+    <div class="container">
+        <h2 class="section-title">Novedades Destacadas</h2>
+        
+        <div class="carousel-container" id="carousel-container">
+            <div class="carousel-track" id="carousel-track">
+                <!-- 🔥 Aquí JS insertará los 4 productos -->
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="why-choose-us">

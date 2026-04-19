@@ -1,0 +1,5 @@
+{
+    "require": {
+        "aura/session": "^6.0"
+    }
+}

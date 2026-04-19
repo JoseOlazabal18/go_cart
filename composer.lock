@@ -1,0 +1,73 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "1d4c3493f7edc03dd52e2a52def22c57",
+    "packages": [
+        {
+            "name": "aura/session",
+            "version": "6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/auraphp/Aura.Session.git",
+                "reference": "fb2751a4256d6f69556a55fc781b8feff8d96a88"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/auraphp/Aura.Session/zipball/fb2751a4256d6f69556a55fc781b8feff8d96a88",
+                "reference": "fb2751a4256d6f69556a55fc781b8feff8d96a88",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.5 || ^11.0"
+            },
+            "suggest": {
+                "ext-openssl": "OpenSSL generates the best secure CSRF tokens."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aura\\Session\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aura.Session Contributors",
+                    "homepage": "https://github.com/auraphp/Aura.Session/contributors"
+                }
+            ],
+            "description": "Provides session management functionality, including lazy session starting, session segments, next-request-only (\"flash\") values, and CSRF tools.",
+            "homepage": "https://github.com/auraphp/Aura.Session",
+            "keywords": [
+                "csrf",
+                "flash",
+                "flash message",
+                "session",
+                "sessions"
+            ],
+            "support": {
+                "issues": "https://github.com/auraphp/Aura.Session/issues",
+                "source": "https://github.com/auraphp/Aura.Session/tree/6.0.0"
+            },
+            "time": "2026-02-25T07:46:35+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {},
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
+}

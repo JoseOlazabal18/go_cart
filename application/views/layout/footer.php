@@ -82,6 +82,9 @@ footer p {
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo BASE_URL ?>application/views/layout/js/index.js"></script>
+<script>
+    const BASE_URL = "<?php echo BASE_URL; ?>";
+</script>
 <?php if (isset($params['js']) && count($params['js'])): ?>
     <?php foreach ($params['js'] as $js): ?>
         <script src="<?php echo $js; ?>" type="text/javascript"></script>

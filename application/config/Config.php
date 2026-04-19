@@ -2,7 +2,7 @@
 // Zona Horaria
 date_default_timezone_set('America/Lima');
 
-// ENTORNO (simple y controlado)
+// BASE URL
 if ($_SERVER['HTTP_HOST'] === 'localhost') {
     define('BASE_URL', 'http://localhost/go_cart/');
 } else {
@@ -13,9 +13,9 @@ if ($_SERVER['HTTP_HOST'] === 'localhost') {
 define('DEFAULT_CONTROLLER', 'Home');
 define('DEFAULT_LAYOUT', 'layout');
 
-// Base de datos
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'db_gliese');
+// 🔥 BD REMOTA SIEMPRE (SIN LOCAL)
+define('DB_HOST', 'solucionesintegralesjb.com');
+define('DB_NAME', 'soluciones_gliese');
+define('DB_USER', 'soluciones_gliese');
+define('DB_PASS', 'Ns7l3TRaF5%!');
 define('DB_PORT', 3306);

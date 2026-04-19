@@ -1,0 +1,39 @@
+{
+    "name": "aura/session",
+    "type": "library",
+    "description": "Provides session management functionality, including lazy session starting, session segments, next-request-only (\"flash\") values, and CSRF tools.",
+    "keywords": [
+        "session",
+        "sessions",
+        "flash",
+        "flash message",
+        "csrf"
+    ],
+    "homepage": "https://github.com/auraphp/Aura.Session",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aura.Session Contributors",
+            "homepage": "https://github.com/auraphp/Aura.Session/contributors"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aura\\Session\\": "src/"
+        }
+    },
+    "suggest": {
+        "ext-openssl": "OpenSSL generates the best secure CSRF tokens."
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5 || ^11.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Aura\\Session\\": "tests/"
+        }
+    }
+}

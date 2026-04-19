@@ -305,5 +305,176 @@
 
 /**/
 
+/* =========================
+   PRODUCTOS CARRUSEL (MOBILE FIRST)
+========================= */
 
+.products-carousel-section {
+    background: #f8fafc;
+    padding: 3rem 0;
+}
+
+/* TÍTULO */
+.products-carousel-section .section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+}
+
+/* CONTENEDOR SCROLL HORIZONTAL */
+.carousel-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;
+}
+
+/* ocultar scrollbar bonito */
+.carousel-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+    background: #2563eb;
+    border-radius: 10px;
+}
+
+/* TRACK FLEX HORIZONTAL */
+.carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    padding-right: 1rem;
+}
+
+/* =========================
+   CARD (MOBILE BASE)
+========================= */
+
+.product-card {
+    flex: 0 0 75%; /* 👈 mobile: casi pantalla completa */
+    max-width: 260px;
+
+    background: #fff;
+    border-radius: 1.2rem;
+    overflow: hidden;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:active {
+    transform: scale(0.98);
+}
+
+/* IMAGEN */
+.product-image {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* OVERLAY BOTONES */
+.product-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+/* BOTONES */
+.btn-action {
+    background: #fff;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+/* INFO */
+.product-info {
+    padding: 1.2rem;
+}
+
+.product-cat {
+    font-size: 1.1rem;
+    color: #64748b;
+}
+
+.product-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0.5rem 0;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #2563eb;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (min-width: 768px) {
+
+    .products-carousel-section {
+        padding: 4rem 0;
+    }
+
+    .products-carousel-section .section-title {
+        font-size: 2.4rem;
+    }
+
+    .product-card {
+        flex: 0 0 45%;
+        max-width: 280px;
+    }
+
+    .product-image {
+        height: 190px;
+    }
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 1024px) {
+
+    .carousel-track {
+        gap: 2rem;
+    }
+
+    .product-card {
+        flex: 0 0 23%; /* 👈 4 cards visibles */
+        max-width: 260px;
+    }
+
+    .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+}
 

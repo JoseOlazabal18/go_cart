@@ -8,6 +8,9 @@ define('ROOT', realpath(dirname(__FILE__)) . DS);
 define('APP_PATH', ROOT . 'application' . DS);
 define('APP_VENDOR', ROOT . 'vendor' . DS);
 
+
+// 🔥 ESTA LÍNEA ES LA QUE FALTA
+require_once APP_VENDOR . 'autoload.php';
 // --
 require_once APP_PATH . 'config' . DS . 'Config.php';
 require_once APP_PATH . 'core' . DS . 'Autoload.php';
