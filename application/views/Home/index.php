@@ -53,7 +53,7 @@
       </p>
 
       <div class="actions">
-        <a href="#" class="btn-primary">
+        <a href="<?php echo BASE_URL; ?>products" class="btn-primary">
           <i class="fas fa-shopping-cart"></i>
           Ver Catálogo
         </a>
@@ -90,6 +90,45 @@
 
   </div>
 
+</section>
+
+
+<!--000-->
+<section class="products-carousel-section">
+    <div class="container">
+        <h2 class="section-title">Novedades Destacadas</h2>
+        
+        <div class="carousel-container" id="carousel-container">
+            <div class="carousel-track" id="carousel-track">
+                
+                <?php if (isset($productos) && !empty($productos)): ?>
+                    <?php foreach ($productos as $item): ?>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="public/img/products/<?php echo $item['image']; ?>" alt="<?php echo $item['name']; ?>">
+                                <div class="product-overlay">
+                                    <button class="btn-action cart" title="Añadir al carrito">
+                                        <i class="fa-solid fa-cart-plus"></i>
+                                    </button>
+                                    <button class="btn-action details" title="Ver detalles">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-cat"><?php echo $item['category'] ?? 'Tecnología'; ?></span>
+                                <h3 class="product-name"><?php echo $item['name']; ?></h3>
+                                <p class="product-price">S/ <?php echo number_format($item['price'], 2); ?></p>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>No hay productos disponibles por ahora.</p>
+                <?php endif; ?>
+
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="why-choose-us">
