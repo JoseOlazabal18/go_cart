@@ -198,3 +198,112 @@
         justify-content: center;
     }
 }
+
+/* application/public/css/layout/why_choose.css */
+.why-choose-us {
+    background-color: #f8fafc; /* Color de fondo muy claro para separar secciones */
+    padding: var(--spacing-2xl) 0;
+    border-top: 1px solid var(--gray-100);
+}
+
+.why-choose-us .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinear arriba */
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.why-choose-us .section-title {
+    font-size: var(--text-2xl); /* Un tamaño grande */
+    font-weight: 800;
+    color: #1e293b; /* Un color oscuro pero no negro puro */
+    margin: 0;
+}
+
+.why-choose-us .section-subtitle {
+    font-size: var(--text-base);
+    color: #64748b; /* Gris más claro */
+    margin: 5px 0 0;
+}
+
+.why-choose-us .logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Alinear a la derecha */
+    gap: 5px;
+}
+
+.why-choose-us .logo-img-small {
+    width: 60px; /* Un logo más pequeño */
+    height: 60px;
+    border-radius: var(--radius-full);
+}
+
+.why-choose-us .logo-text-small {
+    font-size: var(--text-xs);
+    color: var(--gray-500);
+}
+
+/* Cuadrícula de características */
+.why-choose-us .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.why-choose-us .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.why-choose-us .feature-icon {
+    font-size: 1.8rem; /* Tamaño del icono */
+    color: #2563eb; /* Azul vibrante de la imagen */
+}
+
+.why-choose-us .feature-link {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: #2563eb; /* Azul para el enlace */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.why-choose-us .feature-link:hover {
+    color: var(--primary); /* Cambiar color al pasar el ratón */
+}
+
+/* MEDIA QUERIES (Móvil y Tablet) */
+@media (max-width: 768px) {
+    .why-choose-us {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .why-choose-us .section-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .why-choose-us .logo-wrapper {
+        align-items: center;
+        display: none; /* Ocultar logo en móvil si se prefiere */
+    }
+
+    .why-choose-us .features-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+        gap: var(--spacing-md);
+    }
+
+    .why-choose-us .feature-item {
+        justify-content: center;
+    }
+}
+
+/**/
+
+
+

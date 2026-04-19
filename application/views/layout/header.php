@@ -7,10 +7,12 @@
             </a>
 
             <ul class="nav-main hide-mobile">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="<?php echo BASE_URL; ?>">
+                    Inicio
+                </a></li>
+                <li><a href="<?php echo BASE_URL; ?>products">Productos</a></li>
+                <li><a href="<?php echo BASE_URL; ?>servicios">Servicios</a></li>
+                <li><a href="<?php echo BASE_URL; ?>contacto">Contacto</a></li>
             </ul>
 
             <div class="user-actions">
@@ -50,39 +52,3 @@
 
 <div class="sidebar-overlay" id="overlay"></div>
 
-<aside class="mobile-sidebar" id="sidebar">
-    <div class="sidebar-header">
-        <span class="sidebar-title">Menú</span>
-        <button class="close-menu" id="close-menu">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-    </div>
-    
-    <nav class="sidebar-nav">
-        <ul class="sidebar-list">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Productos</a></li>
-            <li><a href="#">Servicios</a></li>
-            <li><a href="#">Contacto</a></li>
-            
-            <hr class="sidebar-hr">
-
-            <li class="sidebar-dropdown">
-                <button class="dropdown-btn" id="sidebar-cat-toggle">
-                    Categorías <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <ul class="dropdown-content" id="sidebar-cat-list">
-                    <li><a href="#">Computadoras</a></li>
-                    <li><a href="#">Laptops</a></li>
-                    <li><a href="#">Impresoras</a></li>
-                    <li><a href="#">Monitores</a></li>
-                    <li><a href="#">Móviles</a></li>
-                    <li><a href="#">Periféricos</a></li>
-                </ul>
-            </li>
-
-            <hr class="sidebar-hr">
-            <li><a href="#"><i class="fa-regular fa-user"></i> Mi Cuenta</a></li>
-        </ul>
-    </nav>
-</aside>

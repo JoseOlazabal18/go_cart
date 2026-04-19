@@ -1,8 +1,8 @@
 <style>
   /* Footer */
 footer {
-    background-color: #f1f5f9;
-    color: #334155; /* var(--text-color) */
+    background-color: #2563eb;
+    color: #f1f5f9; /* var(--text-color) */
     padding: 30px 0;
     border-top: 1px solid #e2e8f0; /* var(--border-color) */
 }
@@ -18,7 +18,7 @@ footer .container {
 footer p {
     margin: 0;
     font-size: 0.9rem;
-    color: #64748b; /* var(--text-light) */
+    color: #e2e8f0; /* var(--text-light) */
 }
 
 .social-icons {

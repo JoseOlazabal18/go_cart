@@ -7,4 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     current = (current + 1) % radios.length;
     radios[current].checked = true;
   }, 3500);
+
+  //------------------
+
+  
 });
