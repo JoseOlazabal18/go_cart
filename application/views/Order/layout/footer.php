@@ -5,6 +5,7 @@ footer {
     color: #334155; /* var(--text-color) */
     padding: 30px 0;
     border-top: 1px solid #e2e8f0; /* var(--border-color) */
+    margin-top: auto;
 }
 
 footer .container {

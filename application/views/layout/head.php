@@ -9,3 +9,15 @@
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>public/css/main.css">
 </head>
 <body>
+<style>
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+</style>

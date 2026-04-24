@@ -11,8 +11,8 @@
                     Inicio
                 </a></li>
                 <li><a href="<?php echo BASE_URL; ?>products">Productos</a></li>
-                <li><a href="<?php echo BASE_URL; ?>servicios">Servicios</a></li>
-                <li><a href="<?php echo BASE_URL; ?>contacto">Contacto</a></li>
+                <li><a href="<?php echo BASE_URL; ?>services">Servicios</a></li>
+                <li><a href="<?php echo BASE_URL; ?>contact">Contacto</a></li>
             </ul>
 
             <div class="user-actions">

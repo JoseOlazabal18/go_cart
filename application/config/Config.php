@@ -47,10 +47,10 @@ define('DEFAULT_CONTROLLER', 'Home');
 define('DEFAULT_LAYOUT', 'layout');
 
 // 5. Base de Datos (Asegúrate de que 'db_gliese' existe en tu Laragon)
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'db_gliese');
+define('DB_HOST', 'solucionesintegralesjb.com');
+define('DB_NAME', 'soluciones_gliese');
+define('DB_USER', 'soluciones_gliese');
+define('DB_PASS', 'Ns7l3TRaF5%!');
 define('DB_PORT', 3306);
 
 // 6. Configuración de Correo (Lo que trajo Quispe)
