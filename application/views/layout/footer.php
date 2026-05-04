@@ -68,6 +68,32 @@ footer p {
             <a href="https://www.youtube.com/channel/UCwZllsxQMp2LwUSIDmldUeQ" target="_blank" class="social-box"><i class="fab fa-youtube"></i></a>
         </div>
     </div>
+    <!-- ==========================================
+     WIDGET DE SOPORTE EN VIVO (CHAT)
+    =========================================== -->
+    <div id="jb-chat-widget" class="jb-chat-collapsed">
+        <!-- Botón flotante -->
+        <button id="jb-chat-toggle" class="jb-chat-btn">
+            <i class="fas fa-comments"></i>
+        </button>
+
+        <!-- Ventana del chat -->
+        <div class="jb-chat-box">
+            <div class="jb-chat-header">
+                <div>
+                    <i class="fas fa-headset"></i> Soporte JB
+                </div>
+                <button id="jb-chat-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="jb-chat-messages" id="jb-chat-messages">
+                <!-- Los mensajes se inyectarán aquí dinámicamente -->
+            </div>
+            <div class="jb-chat-input-area">
+                <input type="text" id="jb-chat-input" placeholder="Escribe un mensaje..." disabled>
+                <button id="jb-chat-send" disabled><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
 </footer>
 
 <!-- 
@@ -82,6 +108,7 @@ footer p {
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo BASE_URL ?>application/views/layout/js/index.js"></script>
+<script src="<?php echo BASE_URL ?>application/views/layout/js/chat.js"></script>
 <script>
     const BASE_URL = "<?php echo BASE_URL; ?>";
 </script>
